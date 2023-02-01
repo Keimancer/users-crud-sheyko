@@ -24,7 +24,12 @@ app.get( '/users/:id', ( req, res ) => {
     const data = usersDB.find( user => id === user.id );
     if ( data ){
         res.json( {
-            data
+            id: data.id,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            email: data.email,
+            password: data.password,
+            age: data.age
         } );
     } else {
         res.status( 404 ).json( {
